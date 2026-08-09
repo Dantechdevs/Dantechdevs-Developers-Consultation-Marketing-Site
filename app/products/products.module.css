@@ -1,0 +1,312 @@
+/* ---------- Page (light theme) ---------- */
+.scope {
+  --paper: #ffffff;
+  --surface: #f8fafc;
+  --line: #e2e8f0;
+  --line-soft: #e2e8f0;
+  --ink: #0f172a;
+  --ink-soft: #64748b;
+  --ink-faint: #94a3b8;
+
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-bg: #eff6ff;
+  --blue-line: #bfdbfe;
+
+  --green: #16a34a;
+  --green-soft: #16a34a;
+  --green-bg: #f0fdf4;
+  --green-line: #bbf7d0;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.display {
+  font-family: var(--font-body);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-family: var(--font-label);
+}
+
+.badge {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-line);
+}
+
+/* ---------- Flagship card: dark navy/green, self-contained ---------- */
+.flagshipCard {
+  --ink: #f1f5f9;
+  --ink-soft: #94a3b8;
+  --ink-faint: #64748b;
+  --line: #22305c;
+  --line-soft: #1a2648;
+  --green-soft: #34d399;
+  --green-bg: rgba(16, 185, 129, 0.1);
+  --green-line: rgba(16, 185, 129, 0.35);
+
+  background: linear-gradient(180deg, #0f1a3a 0%, #0a1128 100%);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.tag {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: #16224d;
+  border: 1px solid var(--line);
+}
+
+.tagGreen {
+  color: var(--green-soft);
+  background: var(--green-bg);
+  border: 1px solid var(--green-line);
+}
+
+.iconTile {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+}
+
+.primaryCta {
+  background: var(--green, #16a34a);
+  color: #06251b;
+  font-weight: 700;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.primaryCta:hover {
+  background: #22c55e;
+  transform: translateY(-1px);
+}
+
+.secondaryCta {
+  background: #16224d;
+  color: var(--ink);
+  font-weight: 600;
+  border: 1px solid var(--line);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.secondaryCta:hover {
+  background: #1c2c5e;
+  border-color: var(--green-line);
+}
+
+/* Blue outline CTA, used in the light-themed detail panel */
+.outlineCta {
+  background: var(--paper, #fff);
+  color: var(--ink, #0f172a);
+  font-weight: 600;
+  border: 1px solid var(--line, #e2e8f0);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.outlineCta:hover {
+  background: var(--surface, #f8fafc);
+  border-color: var(--blue-line, #bfdbfe);
+}
+
+.blueCta {
+  background: var(--blue, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.blueCta:hover {
+  background: var(--blue-dark, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+.featureCard {
+  background: #16224d;
+  border: 1px solid var(--line-soft);
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.featureCard:hover {
+  border-color: var(--green-line);
+  transform: translateY(-2px);
+}
+
+.miniBadge {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: #0f1a3a;
+  border: 1px solid var(--line);
+}
+
+.metricsPanel {
+  background: #0f1a3a;
+  border: 1px solid var(--line);
+}
+
+.metricsHeaderTag {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--green-soft);
+  background: var(--green-bg);
+  border: 1px solid var(--green-line);
+}
+
+.metricRow {
+  background: #0a1128;
+  border: 1px solid var(--line-soft);
+}
+
+.metricValue {
+  font-family: var(--font-label);
+  color: var(--green-soft);
+  font-weight: 600;
+}
+
+.noteBox {
+  background: #0a1128;
+  border: 1px solid var(--line);
+}
+
+.noteLink {
+  color: var(--green-soft);
+  font-weight: 600;
+  transition: color 150ms ease, gap 150ms ease;
+}
+
+.noteLink:hover {
+  color: #4ade80;
+}
+
+/* ---------- Rest of page: light theme ---------- */
+.sectionDivider {
+  border-top: 1px solid var(--line);
+}
+
+.productCard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease,
+    box-shadow 150ms ease;
+  text-align: left;
+  color: var(--ink);
+}
+
+.productCard:hover {
+  border-color: var(--blue-line);
+  transform: translateY(-2px);
+}
+
+.productCard[aria-selected="true"] {
+  --ink: #ffffff;
+  --ink-soft: #dbeafe;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--ink);
+  box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.45);
+  transform: translateY(-2px);
+}
+
+.productIconTile {
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-line);
+}
+
+.productCard[aria-selected="true"] .productIconTile {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.categoryLabel {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--blue-dark);
+}
+
+.productCard[aria-selected="true"] .categoryLabel {
+  color: #dbeafe;
+}
+
+.productCard:focus-visible,
+.primaryCta:focus-visible,
+.secondaryCta:focus-visible,
+.outlineCta:focus-visible,
+.blueCta:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.detailPanel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  animation: rise 240ms ease both;
+}
+
+.capabilityRow {
+  border-bottom: 1px solid var(--line);
+}
+
+.capabilityRow:last-child {
+  border-bottom: none;
+}
+
+.archBox {
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.archLabel {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.archValueGreen {
+  color: var(--green);
+}
+
+.archValueBlue {
+  color: var(--blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detailPanel {
+    animation: none;
+  }
+
+  .primaryCta:hover,
+  .blueCta:hover,
+  .productCard:hover {
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

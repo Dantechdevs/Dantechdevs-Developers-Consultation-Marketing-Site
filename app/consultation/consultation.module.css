@@ -1,0 +1,204 @@
+.scope {
+  --paper: #ffffff;
+  --surface: #f8fafc;
+  --ink: #0f172a;
+  --ink-soft: #64748b;
+  --line: #e2e8f0;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-tint: #eff6ff;
+  --teal: #16a34a;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.badge {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  background: var(--blue-tint);
+  border: 1px solid #bfdbfe;
+}
+
+.display {
+  font-family: var(--font-display);
+}
+
+.label {
+  font-family: var(--font-label);
+}
+
+.mono {
+  font-family: var(--font-label);
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.stepBadge {
+  font-family: var(--font-label);
+  background: var(--blue);
+  color: #fff;
+}
+
+.select {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 150ms ease;
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+/* Module / add-on selection tiles */
+.tile {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  text-align: left;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+  cursor: pointer;
+}
+
+.tile:hover {
+  border-color: var(--blue);
+}
+
+.tile[data-selected="true"] {
+  border-color: var(--blue);
+  background: var(--blue-tint);
+  box-shadow: 0 0 0 1px var(--blue) inset;
+}
+
+.checkbox {
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1.5px solid var(--line);
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.tile[data-selected="true"] .checkbox {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+  cursor: pointer;
+}
+
+.chip[data-selected="true"] {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Sticky quote panel */
+.quotePanel {
+  background: var(--ink);
+  color: #fff;
+}
+
+.quoteEyebrow {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+.priceRange {
+  font-family: var(--font-label);
+  font-variant-numeric: tabular-nums;
+}
+
+.divider {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.scopeRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.primaryBtn {
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+  transition: background 150ms ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.select:focus-visible,
+.tile:focus-visible,
+.chip:focus-visible,
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible,
+.field:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Contact modal */
+.overlay {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.modal {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.field {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 150ms ease;
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn:hover:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,120 @@
+.scope {
+  --paper: #ffffff;
+  --surface: #f8fafc;
+  --ink: #0f172a;
+  --ink-soft: #64748b;
+  --line: #e2e8f0;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --rust: #dc2626;
+  --rust-bg: #fef2f2;
+  --rust-line: #fecaca;
+  --teal: #16a34a;
+  --teal-bg: #f0fdf4;
+  --teal-line: #bbf7d0;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.badge {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.display {
+  font-family: var(--font-display);
+}
+
+.label {
+  font-family: var(--font-label);
+}
+
+/* Pill tabs */
+.pill {
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.pill[aria-selected="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  box-shadow: 0 4px 14px -4px rgb(37 99 235 / 0.45);
+}
+
+.pill:hover[aria-selected="false"] {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+.pill:focus-visible,
+.ctaButton:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.ctaButton {
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.ctaButton:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.challengeBox {
+  background: var(--rust-bg);
+  border: 1px solid var(--rust-line);
+}
+
+.capabilityBox {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-line);
+}
+
+.boxHeading {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Panel transition */
+.panel {
+  animation: rise 240ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+  .ctaButton:hover {
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
