@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Home, Sparkles, Code2, Package, Layers, Award, PhoneCall, ChevronDown, PiggyBank, Calculator, Bot, Headset, Compass, Smartphone, CalendarClock, GanttChartSquare } from "lucide-react";
+import { Home, Sparkles, Code2, Package, Layers, Award, PhoneCall, ChevronDown, PiggyBank, Calculator, Bot, Headset, Compass, Smartphone, CalendarClock, GanttChartSquare, Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -28,6 +28,7 @@ const planningTools = [
 
 export default function NavBar() {
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <nav className="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -61,38 +62,93 @@ export default function NavBar() {
           </li>
         </ul>
 
-        <div className="relative">
-          <button onClick={() => setToolsOpen(!toolsOpen)} className="flex items-center gap-1.5 bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-blue-700">
-            <Sparkles size={16} />
-            Interactive Tools
-            <ChevronDown size={14} className={toolsOpen ? "rotate-180 transition-transform" : "transition-transform"} />
-          </button>
+        <div className="flex items-center gap-2">
+          <div className="relative hidden sm:block">
+            <button onClick={() => setToolsOpen(!toolsOpen)} className="flex items-center gap-1.5 bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-blue-700">
+              <Sparkles size={16} />
+              Interactive Tools
+              <ChevronDown size={14} className={toolsOpen ? "rotate-180 transition-transform" : "transition-transform"} />
+            </button>
 
-          {toolsOpen && (
-            <div className="absolute right-0 mt-2 w-72 bg-white border border-slate-200 rounded-md shadow-lg overflow-hidden max-h-[28rem] overflow-y-auto">
-              <p className="px-4 pt-3 pb-2 text-[10px] font-bold text-slate-400 tracking-wide">LIVE DEMOS &amp; SANDBOXES</p>
-              {demoTools.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <a key={tool.href} href={tool.href} className="flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
-                    {tool.tag && <span className="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">{tool.tag}</span>}
-                  </a>
-                );
-              })}
-              <p className="px-4 pt-3 pb-2 text-[10px] font-bold text-slate-400 tracking-wide border-t border-slate-100 mt-1">PLANNING TOOLS</p>
-              {planningTools.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <a key={tool.href} href={tool.href} className="flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
-                  </a>
-                );
-              })}
-            </div>
-          )}
+            {toolsOpen && (
+              <div className="absolute right-0 mt-2 w-72 bg-white border border-slate-200 rounded-md shadow-lg overflow-hidden max-h-[28rem] overflow-y-auto">
+                <p className="px-4 pt-3 pb-2 text-[10px] font-bold text-slate-400 tracking-wide">LIVE DEMOS &amp; SANDBOXES</p>
+                {demoTools.map((tool) => {
+                  const Icon = tool.icon;
+                  return (
+                    <a key={tool.href} href={tool.href} className="flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
+                      <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
+                      {tool.tag && <span className="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">{tool.tag}</span>}
+                    </a>
+                  );
+                })}
+                <p className="px-4 pt-3 pb-2 text-[10px] font-bold text-slate-400 tracking-wide border-t border-slate-100 mt-1">PLANNING TOOLS</p>
+                {planningTools.map((tool) => {
+                  const Icon = tool.icon;
+                  return (
+                    <a key={tool.href} href={tool.href} className="flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
+                      <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md border border-slate-200 text-slate-700"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-3">
+          <ul className="flex flex-col gap-1 text-sm font-medium text-slate-700 mb-3">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <li key={link.href}>
+                  <a href={link.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 py-2.5 hover:text-blue-600">
+                    <Icon size={16} />
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
+            <li>
+              <a href="/contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 py-2.5 hover:text-blue-600">
+                <PhoneCall size={16} />
+                Contact Us
+              </a>
+            </li>
+          </ul>
+
+          <p className="text-[10px] font-bold text-slate-400 tracking-wide pt-2 border-t border-slate-100">LIVE DEMOS &amp; SANDBOXES</p>
+          {demoTools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <a key={tool.href} href={tool.href} onClick={() => setMobileOpen(false)} className="flex items-center justify-between gap-2 py-2.5 text-sm text-slate-700 hover:text-blue-600">
+                <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
+                {tool.tag && <span className="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">{tool.tag}</span>}
+              </a>
+            );
+          })}
+
+          <p className="text-[10px] font-bold text-slate-400 tracking-wide pt-3 border-t border-slate-100 mt-1">PLANNING TOOLS</p>
+          {planningTools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <a key={tool.href} href={tool.href} onClick={() => setMobileOpen(false)} className="flex items-center justify-between gap-2 py-2.5 text-sm text-slate-700 hover:text-blue-600">
+                <span className="flex items-center gap-2"><Icon size={16} /> {tool.label}</span>
+              </a>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 }
