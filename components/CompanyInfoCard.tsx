@@ -8,7 +8,7 @@ export default function CompanyInfoCard() {
           <p className="text-slate-500 uppercase text-xs font-semibold">
             Email Inquiry
           </p>
-          <p className="font-medium text-slate-900">support@dantechdevs.co.ke</p>
+          <p className="font-medium text-slate-900">support@dantechdevelopers.com</p>
         </div>
 
         <div>
