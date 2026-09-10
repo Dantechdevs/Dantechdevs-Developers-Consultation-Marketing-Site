@@ -12,12 +12,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/*
+ * No dark: Tailwind variants exist anywhere in this codebase, and every
+ * component hardcodes its own light-mode colors. A prefers-color-scheme
+ * override here only flips this body background/foreground, leaving
+ * sections with no explicit bg (BookSlot, PortfolioPage, WhoWeServe,
+ * TimelinePlanner, HeroBanner, ClientSolutions, ServiceFinder, StatsBar,
+ * CostEstimator, AboutIntro) showing dark-on-dark or invisible text for
+ * visitors on OS dark mode. Removed until real dark mode support
+ * (next-themes + dark: variants) is built site-wide.
+ */
 
 body {
   background: var(--background);
